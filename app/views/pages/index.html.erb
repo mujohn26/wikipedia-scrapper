@@ -1,0 +1,24 @@
+<h1>Wikipedia Scraper</h1>
+<%= form_with(url: '/', method: :get) do |form| %>
+  <%= form.text_field :wikipedia_link, placeholder: 'Enter a Wikipedia link' %>
+  <%= form.submit 'Scrape' %>
+<% end %>
+<% if @article_data %>
+  <h2>Wikipedia Article</h2>
+  <h3>Title : <%= @article_data[:title] %></h3>
+  <h3>Languages</h3>
+  <table>
+  <thead>
+    <tr>
+    </tr>
+  </thead>
+  <tbody>
+    <% @article_data[:languages].each do |language| %>
+      <tr>
+        <td><%= language %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% end %>
